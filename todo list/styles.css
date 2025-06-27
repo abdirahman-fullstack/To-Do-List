@@ -46,7 +46,7 @@ ul{
     list-style: none;
     padding: 0;
 }
-li{
+.container{
     padding: 10px;
     margin-bottom: 10px;
     background-color: #f1f1f1;
@@ -55,9 +55,29 @@ li{
     justify-content: space-between;
     align-items: center;
 }
-li.completed{
+
+.button-div{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 0.6rems;
+}
+.completed{
     text-decoration: line-through;
     color: gray;
+}
+
+.complete-btn{
+    background-color: #45a049;
+    margin-right: 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.complete-btn:hover{
+    background-color: #4caf50;
 }
 .delete-btn{
     background-color: #e74c3c;
