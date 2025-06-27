@@ -8,6 +8,7 @@ function addTask() {
         return;
     }
 
+
     const taskList =
     document.getElementById("taskList");
 
@@ -15,18 +16,33 @@ function addTask() {
 
     li.textContent = taskText;
 
-    li.addEventListener("click", () => {
-        li.claasList.toggle("completed");
-    });
+    const containerDiv = document.createElement('div')
+    containerDiv.className = "container"
+    const buttonDiv = document.createElement("div");
+    buttonDiv.className = "button-div"
 
+
+    const completeBtn = document.createElement("button");
+    completeBtn.textContent = "Complete"
+    completeBtn.classList = "complete-btn"
+    completeBtn.addEventListener("click", () => {
+        li.classList.toggle("completed")
+    })
+    // Creating delete button dynamically
     const deleteBtn =
     document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.className = "delete-btn";
-    deleteBtn.onclick = () => taskList.removeChild(li);
-    
-    li.appendChild(deleteBtn);
-    taskList.appendChild(li);
+    deleteBtn.onclick = () => taskList.removeChild(containerDiv);
+
+    buttonDiv.appendChild(completeBtn)
+    buttonDiv.appendChild(deleteBtn)
+
+
+    containerDiv.appendChild(li);
+    containerDiv.appendChild(buttonDiv)
+    // li.appendChild(deleteBtn);
+    taskList.appendChild(containerDiv);
 
     taskInput.value = "";
 }
